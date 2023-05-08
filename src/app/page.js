@@ -1,11 +1,14 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const req = await fetch("http://localhost:3003/alunos");
+  const data = await req.json();
   return (
-    <main className="">
-    </main>
+   <div>
+      <p>{data.map(element => {
+        element.nome
+        element.num_inscricao
+        element.curso
+      })}
+  </div>
   )
 }
